@@ -1,0 +1,14 @@
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+near infrared-slave-v1_0\croutine.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+near infrared-slave-v1_0\croutine.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+near infrared-slave-v1_0\croutine.o: ../Core/Inc/FreeRTOSConfig.h
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h
+near infrared-slave-v1_0\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
