@@ -242,7 +242,7 @@ void Host_Read03_slave(uint8_t slave,uint16_t StartAddr,uint16_t num)
 
     //发送数据包装完毕
 //    RS485_TX_ENABLE;;//使能485控制端(启动发送)
-//	HAL_Delay(100);
+	HAL_Delay(100);
     for(j=0; j<8; j++)
     {
         Modbus_Send_Byte(modbus.Host_Txbuf[j]);
@@ -302,7 +302,7 @@ void HOST_ModbusRX()
 //	printf("0000");
     if(modbus.reflag == 0)  //如果接收未完成则返回空
     {
-		printf("555\r\n");
+//		printf("555\r\n");
         return;
     }
 	

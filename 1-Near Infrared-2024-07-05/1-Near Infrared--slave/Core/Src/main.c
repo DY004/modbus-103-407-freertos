@@ -195,7 +195,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   }
   /* USER CODE BEGIN Callback 1 */
   
-  	if (htim->Instance == htim3.Instance) 
+  	if (htim->Instance == TIM3) 
 	{
  		
  		if(modbus.timrun != 0)//运行时间！=0表明

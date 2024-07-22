@@ -143,7 +143,7 @@ void Start_LED_Task(void const * argument)
 	  HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
 //	  printf("modbus.timrun的值是；%d",modbus.timrun);
 //	  printf("此刻modbus.Host_Sendtime的值是；%d\r\n",modbus.Host_Sendtime);
-	  printf("modbus.recount的值；%d",modbus.recount);
+//	  printf("modbus.recount的值；%d",modbus.recount);
 //	  printf("这是一个测试性实验\r\n");
 	  osDelay(500);
   }
@@ -203,7 +203,6 @@ void Start_modbus_Task(void const * argument)
             Host_Read03_slave(0x01,0x0000,0x0003);//参数1从机地址，参数2起始地址，参数3寄存器个数
             if(modbus.Host_send_flag)
             {
-//				printf("Host_send_flag: %d\r\n",modbus.Host_send_flag);
                 modbus.Host_Sendtime=0;//发送完毕后计数清零（距离上次的时间）
                 modbus.Host_time_flag=0;//发送数据标志位清零
                 modbus.Host_send_flag=0;//清空发送结束数据标志位

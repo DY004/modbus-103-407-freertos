@@ -68,7 +68,7 @@ void Modbus_Func3()
 
 //    RS485_TX_ENABLE;//这是开启485发送
 	
-	printf("发送数据\r\n");
+//	printf("发送数据\r\n");
     for(j=0; j<i; j++) //发送数据
     {
         Modbus_Send_Byte(modbus.sendbuf[j]);

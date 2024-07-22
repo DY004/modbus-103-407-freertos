@@ -200,20 +200,41 @@ void USART1_IRQHandler(void)
   /* USER CODE BEGIN USART1_IRQn 0 */
 
   /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(&huart1);
-  /* USER CODE BEGIN USART1_IRQn 1 */
+//  HAL_UART_IRQHandler(&huart1);
+//  /* USER CODE BEGIN USART1_IRQn 1 */
 
-    if( modbus.reflag==1)  //有数据包正在处理
+//    if( modbus.reflag==1)  //有数据包正在处理
+//    {
+//        return ;
+//    }
+//    modbus.rcbuf[modbus.recount++] = RES;
+//    modbus.timout = 0;
+//    if(modbus.recount == 1)  //已经收到了第二个字符数据
+//    {
+//        modbus.timrun = 1;  //开启modbus定时器计时
+//    }
+//    HAL_UART_Receive_IT(&huart1, (uint8_t *)&RES,1);  //添加的一行代码
+	
+//	uint8_t  res;
+
+	if(__HAL_UART_GET_FLAG( &huart1, UART_FLAG_RXNE ) != RESET)
+	{		
+		RES=( uint16_t)READ_REG(huart1.Instance->DR);
+//		WRITE_REG(huart1.Instance->DR,ch); 
+
+	}
+	
+	if( modbus.reflag==1)  //有数据包正在处理
     {
         return ;
     }
-    modbus.rcbuf[modbus.recount++] = RES;
-    modbus.timout = 0;
-    if(modbus.recount == 1)  //已经收到了第二个字符数据
+	modbus.rcbuf[modbus.recount++] = RES;
+	modbus.timout = 0;
+	if(modbus.recount == 1)  //已经收到了第二个字符数据
     {
         modbus.timrun = 1;  //开启modbus定时器计时
+        
     }
-    HAL_UART_Receive_IT(&huart1, (uint8_t *)&RES,1);  //添加的一行代码
 
   /* USER CODE END USART1_IRQn 1 */
 }

@@ -101,7 +101,7 @@ int main(void)
     MX_USART1_UART_Init();
     /* USER CODE BEGIN 2 */
     Modbus_Init();//本机作为从机使用时初始化
-    HAL_UART_Receive_IT(&huart1, (uint8_t *)&RES, 1);//调用接收中断函数
+//    HAL_UART_Receive_IT(&huart1, (uint8_t *)&RES, 1);//调用接收中断函数
     OLED_Init();
     OLED_Clear();
 //  HAL_Delay(500);
@@ -198,7 +198,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         HAL_IncTick();
     }
     /* USER CODE BEGIN Callback 1 */
-    if (htim->Instance == htim2.Instance)
+    if (htim->Instance == TIM2)
     {
 
         if(modbus.timrun != 0)//运行时间！=0表明
@@ -206,7 +206,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
             modbus.timout++;
             if(modbus.timout >=8)//
             {
-                modbus.timrun = 0;
+                modbus.timrun = 0;//关闭定时器
                 modbus.reflag = 1;//接收数据完毕
             }
         }
