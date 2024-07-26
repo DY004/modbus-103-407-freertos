@@ -9,6 +9,8 @@
 #include "sys.h"
 #include "matrix_key.h"
 
+uint8_t key_status = 0;
+
 RTC_DateTypeDef GetData;  //获取日期结构体
 
 RTC_TimeTypeDef GetTime;   //获取时间结构体
@@ -313,6 +315,7 @@ void Setting()
     OLED_DrawBMP(40,2,88,8,gImage_setting);
     OLED_DrawBMP(99,4,115,6,gImage_right);
     OLED_DrawBMP(107,6,123,8,gImage_back);
+	key_status =0;
 }
 
 void Info()
@@ -343,7 +346,6 @@ u8 KEY_Scan(u8 mode)
         else if(KEY1==0)return 2;  //按键执行确定
         else if(KEY2==0)return 3;  //按键执行返回
     } 
-	
 	else if(KEY0==1&&KEY1==1&&KEY2==1&&KEY_UP==0)key_up=1;
     return 0;
 }
@@ -364,7 +366,9 @@ void Set()
 {
     OLED_ShowString(0,0,"Peripherals: Lights",16);
     OLED_ShowString(0,2,"Status: Closed",16);
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
+//    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
+	key_status =1;
+	
 }
 
 void Information()
@@ -380,7 +384,8 @@ void LED()
 {
     OLED_ShowString(0,0,"Peripherals: Lights",16);
     OLED_ShowString(0,2,"Status: Open",16);
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+//    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+	 key_status =2;
 }
 
 //四级界面函数

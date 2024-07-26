@@ -203,8 +203,8 @@ void USART1_IRQHandler(void)
 	
 
   /* USER CODE END USART1_IRQn 0 */
-//  HAL_UART_IRQHandler(&huart1);
-//  /* USER CODE BEGIN USART1_IRQn 1 */
+  HAL_UART_IRQHandler(&huart1);
+  /* USER CODE BEGIN USART1_IRQn 1 */
 //    if( modbus.reflag==1)  //有数据包正在处理
 //    {
 //        return ;
@@ -242,8 +242,6 @@ void USART1_IRQHandler(void)
         modbus.timrun = 1;  //开启modbus定时器计时
         
     }
-
-
 
   /* USER CODE END USART1_IRQn 1 */
 }

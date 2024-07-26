@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../HARDWARE/control;../HARDWARE/DHT11;../HARDWARE/dinogame;../HARDWARE/MENU;../HARDWARE/OLED;../SYSTEM/delay;../SYSTEM/sys;../HARDWARE/modbus;..\HARDWARE\PWR_ON_OFF;..\HARDWARE\KEY</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../HARDWARE/control;../HARDWARE/DHT11;../HARDWARE/dinogame;../HARDWARE/MENU;../HARDWARE/OLED;../SYSTEM/delay;../SYSTEM/sys;../HARDWARE/modbus;../HARDWARE/PWR_ON_OFF;../HARDWARE/KEY;../HARDWARE/Water_tank_liquid;../HARDWARE/flash_write_read</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -800,6 +800,16 @@
               <FileName>key.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\KEY\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>Water_tank_liquid.C</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\Water_tank_liquid\Water_tank_liquid.C</FilePath>
+            </File>
+            <File>
+              <FileName>flash_write_read.C</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\flash_write_read\flash_write_read.C</FilePath>
             </File>
           </Files>
         </Group>

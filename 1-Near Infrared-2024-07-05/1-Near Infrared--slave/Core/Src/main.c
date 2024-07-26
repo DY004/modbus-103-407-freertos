@@ -102,7 +102,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(POWER_CTR_GPIO_Port,POWER_CTR_Pin,GPIO_PIN_SET);
   Modbus_Init();//本机作为从机使用时初始化
-  HAL_UART_Receive_IT(&huart1, (uint8_t *)&RES,1);  //添加的一行代码
+//  HAL_UART_Receive_IT(&huart1, (uint8_t *)&RES,1);  //添加的一行代码
 //  OLED_Init();
 //  OLED_Clear();
   

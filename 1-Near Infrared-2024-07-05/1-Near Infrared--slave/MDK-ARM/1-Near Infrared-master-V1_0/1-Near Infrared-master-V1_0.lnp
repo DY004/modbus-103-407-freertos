@@ -47,6 +47,8 @@
 "1-near infrared-master-v1_0\modbus_crc.o"
 "1-near infrared-master-v1_0\pwr_on_off.o"
 "1-near infrared-master-v1_0\key.o"
+"1-near infrared-master-v1_0\water_tank_liquid.o"
+"1-near infrared-master-v1_0\flash_write_read.o"
 "1-near infrared-master-v1_0\delay.o"
 "1-near infrared-master-v1_0\sys.o"
 --library_type=microlib --strict --scatter "1-Near Infrared-master-V1_0\1-Near Infrared-master-V1_0.sct"

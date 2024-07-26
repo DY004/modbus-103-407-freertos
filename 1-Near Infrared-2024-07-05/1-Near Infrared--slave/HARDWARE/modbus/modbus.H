@@ -48,7 +48,7 @@ typedef struct
 
 
 extern MODBUS modbus;
-extern uint16_t Reg[];
+extern uint16_t Reg[];//也是可以供外部调用的。
 
 extern uint8_t RES;//串口接收缓冲区
 

@@ -30,6 +30,8 @@
 #include "PWR_ON_OFF.h"
 #include "string.h"
 #include "stdio.h"
+#include "Water_tank_liquid.h"
+#include "flash_write_read.h"
 
 /* USER CODE END Includes */
 
@@ -56,6 +58,8 @@ osThreadId LED_TaskHandle;
 osThreadId PWR_TaskHandle;
 osThreadId BOOT_TaskHandle;
 osThreadId Modbus_TaskHandle;
+osThreadId FAN_TaskHandle;
+osThreadId liquidHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -66,6 +70,8 @@ void Start_LED_Task(void const * argument);
 void Start_PWR_Task(void const * argument);
 void Start_BOOT_Task(void const * argument);
 void Start_Modbus_Task(void const * argument);
+void Start_FAN_Task(void const * argument);
+void Start_liquid(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -78,10 +84,10 @@ static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
 
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
 {
-  *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
-  *ppxIdleTaskStackBuffer = &xIdleStack[0];
-  *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
-  /* place for user code */
+    *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+    *ppxIdleTaskStackBuffer = &xIdleStack[0];
+    *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+    /* place for user code */
 }
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
@@ -96,19 +102,19 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
+    /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
+    /* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
 
   /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
+    /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
+    /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -128,8 +134,16 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(Modbus_Task, Start_Modbus_Task, osPriorityBelowNormal, 0, 128);
   Modbus_TaskHandle = osThreadCreate(osThread(Modbus_Task), NULL);
 
+  /* definition and creation of FAN_Task */
+  osThreadDef(FAN_Task, Start_FAN_Task, osPriorityBelowNormal, 0, 128);
+  FAN_TaskHandle = osThreadCreate(osThread(FAN_Task), NULL);
+
+  /* definition and creation of liquid */
+  osThreadDef(liquid, Start_liquid, osPriorityBelowNormal, 0, 128);
+  liquidHandle = osThreadCreate(osThread(liquid), NULL);
+
   /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
+    /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
 }
@@ -144,14 +158,14 @@ void MX_FREERTOS_Init(void) {
 void Start_LED_Task(void const * argument)
 {
   /* USER CODE BEGIN Start_LED_Task */
-  /* Infinite loop */
-  for(;;)
-  {
-	  HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
-	  HAL_GPIO_TogglePin(LED0_GPIO_Port,LED0_Pin);
+    /* Infinite loop */
+    for(;;)
+    {
+//        HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
+//        HAL_GPIO_TogglePin(LED0_GPIO_Port,LED0_Pin);
 //	  printf("这是一个测试实验123\r\n");
-	  osDelay(500);
-  }
+        osDelay(500);
+    }
   /* USER CODE END Start_LED_Task */
 }
 
@@ -165,14 +179,14 @@ void Start_LED_Task(void const * argument)
 void Start_PWR_Task(void const * argument)
 {
   /* USER CODE BEGIN Start_PWR_Task */
-	
-  /* Infinite loop */
-  osDelay(500);
-  for(;;)
-  {
-    PWR_ON_OFF();
-    osDelay(20);
-  }
+
+    /* Infinite loop */
+    osDelay(500);
+    for(;;)
+    {
+        PWR_ON_OFF();
+        osDelay(20);
+    }
   /* USER CODE END Start_PWR_Task */
 }
 
@@ -186,11 +200,11 @@ void Start_PWR_Task(void const * argument)
 void Start_BOOT_Task(void const * argument)
 {
   /* USER CODE BEGIN Start_BOOT_Task */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
+    /* Infinite loop */
+    for(;;)
+    {
+        osDelay(1);
+    }
   /* USER CODE END Start_BOOT_Task */
 }
 
@@ -204,11 +218,11 @@ void Start_BOOT_Task(void const * argument)
 void Start_Modbus_Task(void const * argument)
 {
   /* USER CODE BEGIN Start_Modbus_Task */
-  /* Infinite loop */
-  for(;;)
-  {
-    if(modbus.Host_time_flag)//每1s发送一次数据
-	{
+    /* Infinite loop */
+    for(;;)
+    {
+        if(modbus.Host_time_flag)//每1s发送一次数据
+        {
             //01-读取从机数据测试
             //参数1：查看第i个从机数据
 //            Host_Read03_slave(0x01,0x0000,0x0003);//参数1从机地址，参数2起始地址，参数3寄存器个数
@@ -238,12 +252,148 @@ void Start_Modbus_Task(void const * argument)
 ////				modbus.Host_send_flag=0;//清空发送结束数据标志位
 ////				Host_Func10();//从机返回数据处理
 ////			}
-			//4-作为从机使用
-			Modbus_Event();//本机作为从机使用时
-	}
+            //4-作为从机使用
+            Modbus_Event();//本机作为从机使用时
+        }
 //		osDelay(5);
-  }
+    }
   /* USER CODE END Start_Modbus_Task */
+}
+
+/* USER CODE BEGIN Header_Start_FAN_Task */
+/**
+* @brief Function implementing the FAN_Task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Start_FAN_Task */
+void Start_FAN_Task(void const * argument)
+{
+  /* USER CODE BEGIN Start_FAN_Task */
+    /* Infinite loop */
+    for(;;)
+    {
+        printf("Reg[2]寄存器中的值： %d\n",Reg[2]);
+//    
+        if(Reg[2] == 69)
+        {
+            HAL_GPIO_WritePin(LED2_GPIO_Port,LED2_Pin,GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(LED3_GPIO_Port,LED3_Pin,GPIO_PIN_RESET);
+            osDelay(500);
+        }
+
+        if(Reg[2] == 80)
+        {
+            HAL_GPIO_WritePin(LED2_GPIO_Port,LED2_Pin,GPIO_PIN_SET);
+            HAL_GPIO_WritePin(LED3_GPIO_Port,LED3_Pin,GPIO_PIN_SET);
+            osDelay(500);
+
+        }
+		osDelay(500);
+
+    }
+  /* USER CODE END Start_FAN_Task */
+}
+
+/* USER CODE BEGIN Header_Start_liquid */
+/**
+* @brief Function implementing the liquid thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Start_liquid */
+void Start_liquid(void const * argument)
+{
+  /* USER CODE BEGIN Start_liquid */
+    /* Infinite loop */
+	STMFLASH_Read(FLASH_ADDR,(uint32_t *)&water_flag_fill_flag,1);//存入此刻液位的高低的标志位。
+
+    uint8_t water_low_flag = 0;//液位高低的标志位
+    uint8_t water_high_flag = 0;//液位高低的标志位
+//    uint8_t water_flag_fill = 0;//液位满的标志位，高低液位均达标了。
+//    water_flag_fill = water_low_flag + water_high_flag;
+    for(;;)
+    {
+        water_low_flag = Water_tank_liquid_low(0);
+        water_high_flag = Water_tank_liquid_high(0);
+//	  if(water_low_flag == 1)//低液位的标志位
+//	  {
+//		  HAL_GPIO_WritePin(LED0_GPIO_Port,LED0_Pin,GPIO_PIN_RESET);
+////		  water_flag = 0;
+//	  }
+//	  if(water_high_flag == 2)//高液位的标志位
+//	  {
+//		  HAL_GPIO_WritePin(LED1_GPIO_Port,LED1_Pin,GPIO_PIN_RESET);
+////		  water_flag = 0;
+//	  }
+
+        if(water_flag_fill_flag == 0)
+        {
+
+            if(water_low_flag  == 1)//低液位有效
+            {
+                HAL_GPIO_WritePin(LED0_GPIO_Port,LED0_Pin,GPIO_PIN_RESET);//低液位的指示灯亮起
+
+            }
+            if( water_high_flag  == 2)//高液位有效
+            {
+                HAL_GPIO_WritePin(LED1_GPIO_Port,LED1_Pin,GPIO_PIN_RESET);//低液位的指示灯亮起
+
+            }
+
+            if(water_low_flag + water_high_flag  == 0)//没有达到高液位和低液位，指示灯全灭。
+            {
+                HAL_GPIO_WritePin(LED0_GPIO_Port,LED0_Pin,GPIO_PIN_SET);
+                HAL_GPIO_WritePin(LED1_GPIO_Port,LED1_Pin,GPIO_PIN_SET);
+
+            }
+
+            else if(water_low_flag + water_high_flag  == 3)
+            {
+                water_flag_fill_flag = 1;
+                STMFLASH_Write(FLASH_ADDR,(uint32_t *)&water_flag_fill_flag,1);//存入此刻液位的高低的标志位。
+                for(int i = 0; i<6; i++) //蜂鸣器响三声后，执行软件复位。
+                {
+                    HAL_GPIO_TogglePin(BEEP_GPIO_Port,BEEP_Pin);
+                    osDelay(500);
+                }
+                HAL_NVIC_SystemReset();//	  执行软件复位。
+
+            }
+        }
+
+
+        else if(water_flag_fill_flag == 1)
+        {
+
+            if(water_high_flag + water_low_flag < 3)//高液位的标志位
+            {
+				Reg[0] = 0x0009;
+                water_flag_fill_flag = 0;
+                STMFLASH_Write(FLASH_ADDR,(uint32_t *)&water_flag_fill_flag,1);
+                HAL_GPIO_WritePin(LED0_GPIO_Port,LED0_Pin,GPIO_PIN_SET);
+                HAL_GPIO_WritePin(LED1_GPIO_Port,LED1_Pin,GPIO_PIN_SET);
+                //		  water_flag = 0;
+            }
+			
+			if(water_high_flag + water_low_flag == 3)//高液位的标志位
+			{
+				osDelay(500);
+				Reg[0] = 0x0010;
+			}
+			
+			
+        }
+		
+
+        printf("此刻water_low_flag的值是： %d\r\n",water_flag_fill_flag);
+
+
+//	  printf("water_low_flag的值是：%d\r\n",water_low_flag);
+//	  printf("water_high_flag的值是：%d\r\n",water_high_flag);
+        osDelay(1000);
+    }
+  /* USER CODE END Start_liquid */
 }
 
 /* Private application code --------------------------------------------------*/

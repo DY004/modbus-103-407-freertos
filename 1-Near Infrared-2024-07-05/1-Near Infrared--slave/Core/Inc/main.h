@@ -58,6 +58,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define BEEP_Pin GPIO_PIN_5
+#define BEEP_GPIO_Port GPIOE
 #define LED2_Pin GPIO_PIN_10
 #define LED2_GPIO_Port GPIOE
 #define LED3_Pin GPIO_PIN_11
@@ -70,6 +72,10 @@ void Error_Handler(void);
 #define LED1_GPIO_Port GPIOD
 #define LED0_Pin GPIO_PIN_1
 #define LED0_GPIO_Port GPIOD
+#define Water_tank_High_Pin GPIO_PIN_3
+#define Water_tank_High_GPIO_Port GPIOD
+#define Water_tank_Low_Pin GPIO_PIN_4
+#define Water_tank_Low_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
 

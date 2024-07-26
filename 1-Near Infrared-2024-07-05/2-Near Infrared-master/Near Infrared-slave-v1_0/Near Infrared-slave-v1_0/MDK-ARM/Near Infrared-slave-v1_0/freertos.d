@@ -51,3 +51,4 @@ near infrared-slave-v1_0\freertos.o: ../HARDWARE/MENU/menu.h
 near infrared-slave-v1_0\freertos.o: ../SYSTEM/delay/delay.h
 near infrared-slave-v1_0\freertos.o: ../HARDWARE/matrix_key/matrix_key.h
 near infrared-slave-v1_0\freertos.o: ../HARDWARE/modbus/modbus.h
+near infrared-slave-v1_0\freertos.o: ../Core/Inc/usart.h

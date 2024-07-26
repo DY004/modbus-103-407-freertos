@@ -29,6 +29,7 @@
 #include "delay.h"
 #include "matrix_key.h"
 #include "modbus.h"
+#include "usart.h"
 
 /* USER CODE END Includes */
 
@@ -54,6 +55,7 @@
 osThreadId LED_TaskHandle;
 osThreadId menu_TaskHandle;
 osThreadId modbus_TaskHandle;
+osThreadId keyboard_scanHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -63,6 +65,7 @@ osThreadId modbus_TaskHandle;
 void Start_LED_Task(void const * argument);
 void Start_menu_Task(void const * argument);
 void Start_modbus_Task(void const * argument);
+void Start_keyboard_scan(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -121,6 +124,10 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(modbus_Task, Start_modbus_Task, osPriorityBelowNormal, 0, 128);
   modbus_TaskHandle = osThreadCreate(osThread(modbus_Task), NULL);
 
+  /* definition and creation of keyboard_scan */
+  osThreadDef(keyboard_scan, Start_keyboard_scan, osPriorityBelowNormal, 0, 128);
+  keyboard_scanHandle = osThreadCreate(osThread(keyboard_scan), NULL);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -138,14 +145,35 @@ void Start_LED_Task(void const * argument)
 {
   /* USER CODE BEGIN Start_LED_Task */
   /* Infinite loop */
+	int rx_value = 0;
+	
   for(;;)
   {
-	  HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
-//	  printf("modbus.timrun的值是；%d",modbus.timrun);
+//	  HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
+//	  printf("(int)modbus.rcbuf[4+i]；%#x\n",(int)modbus.rcbuf[4+2]);
+//	  printf("(int)modbus.rcbuf[4+i]；%d\n",(int)modbus.rcbuf[4]);
 //	  printf("此刻modbus.Host_Sendtime的值是；%d\r\n",modbus.Host_Sendtime);
 //	  printf("modbus.recount的值；%d",modbus.recount);
 //	  printf("这是一个测试性实验\r\n");
-	  osDelay(500);
+	  
+	  /***查看液位传感器的状态，是否是实时性***/
+	  
+	  
+	  
+	  rx_value = (int)modbus.rcbuf[4+0]+((int)modbus.rcbuf[3+0])*256;
+	  osDelay(4000);
+	  if(rx_value == 16)
+	  {
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin,GPIO_PIN_RESET);
+//		  printf("满液位状态\r\n");
+	   
+	  }
+	  else
+	  {
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin,GPIO_PIN_SET); 
+//		  printf("缺水状态\r\n");		  
+	  }
+	  
   }
   /* USER CODE END Start_LED_Task */
 }
@@ -169,15 +197,14 @@ void Start_menu_Task(void const * argument)
 //	  if(key_value == 1)
 //	  {
 //		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin,GPIO_PIN_RESET);
-////		  osDelay(500);
-//	  
+////	  osDelay(500);
 //	  }
 //	  else if(key_value == 2)
 //	  {
 //		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin,GPIO_PIN_SET);
-//	  
 //	  }
 	  Menu_key_set();
+	  osDelay(20);
   }
   /* USER CODE END Start_menu_Task */
 }
@@ -193,21 +220,23 @@ void Start_modbus_Task(void const * argument)
 {
   /* USER CODE BEGIN Start_modbus_Task */
   /* Infinite loop */
+//	uint8_t key1 = 0;
+	int value = 0;
   for(;;)
   {
-	  if(modbus.Host_time_flag)//每1s发送一次数据
-        {
+//	  if(modbus.Host_time_flag)//每1s发送一次数据
+//        {
 //			printf("Host_time_flag的数值是: %d\r\n",modbus.Host_time_flag);
 //            //01-读取从机数据测试
 //            //参数1：查看第i个从机数据
-            Host_Read03_slave(0x01,0x0000,0x0003);//参数1从机地址，参数2起始地址，参数3寄存器个数
-            if(modbus.Host_send_flag)
-            {
-                modbus.Host_Sendtime=0;//发送完毕后计数清零（距离上次的时间）
-                modbus.Host_time_flag=0;//发送数据标志位清零
-                modbus.Host_send_flag=0;//清空发送结束数据标志位
-                HOST_ModbusRX();//接收数据进行处理
-            }
+//            Host_Read03_slave(0x01,0x0000,0x0003);//参数1从机地址，参数2起始地址，参数3寄存器个数
+//            if(modbus.Host_send_flag)
+//            {
+//                modbus.Host_Sendtime=0;//发送完毕后计数清零（距离上次的时间）
+//                modbus.Host_time_flag=0;//发送数据标志位清零
+//                modbus.Host_send_flag=0;//清空发送结束数据标志位
+//                HOST_ModbusRX();//接收数据进行处理
+//            }
 					//02-写入数据测试
 //					Host_write06_slave(0x01,0x06,0x0002,0x0045);
 //					if(modbus.Host_send_flag)
@@ -229,14 +258,225 @@ void Start_modbus_Task(void const * argument)
 //			}
 			//4-作为从机使用
 //			Modbus_Event();//本机作为从机使用时
+//        }
+//		osDelay(1000);
+
+		/***1S的时间内执行数据的读取和写入的实验实验***/
+//		for(int i = 0;i<150;i++)
+//		{
+//			if(i >46 && i <50)
+//			{
+//				if(key_status == 2)
+//				{
+//					Host_write06_slave(0x01,0x06,0x0002,0x0045);
+//					Host_Func6();//从机返回数据处理
+//				}		
+//				if(key_status == 1)
+//				{
+//					Host_write06_slave(0x01,0x06,0x0002,0x0050);
+//					Host_Func6();//从机返回数据处理
+//				}
+////					Host_write06_slave(0x01,0x06,0x0002,0x0050);
+////					Host_Func6();//从机返回数据处理	
+//			}
+//					
+//			if(i >148 && i <150 )
+//			{
+//			
+//				Host_Read03_slave(0x01,0x0000,0x0001);
+//				HOST_ModbusRX();
+//			}
+
+//			
+
+//		
+//		
+//		
+//		}			
+		
 		
 
+		
+//		if(modbus.Host_time_flag)//每1s发送一次数据
+//		{
+//			if(modbus.Host_End_6 == 1)
+//			{
+//				Host_Read03_slave(0x01,0x0000,0x0001);
+//				HOST_ModbusRX();
+//			}
+//			Host_Read03_slave(0x01,0x0000,0x0001);//参数1从机地址，参数2起始地址，参数3寄存器个数,功能函数的末尾带了一个发送完毕的标志位置1的语句。
+//            if(modbus.Host_send_flag)
+//            {
+//                modbus.Host_Sendtime=0;//发送完毕后计数清零（距离上次的时间）
+//                modbus.Host_time_flag=0;//发送数据标志位清零
+//                modbus.Host_send_flag=0;//清空发送结束数据标志位
+//                HOST_ModbusRX();//接收数据进行处理
+//            }		
+//			HOST_ModbusRX();	
 			
-        }
-//		osDelay(1000);
+			
+//			osDelay(3000);
+//			
+//			
+////			//02-写入数据测试
+//			Host_write06_slave(0x01,0x06,0x0002,0x0045);
+////			if(modbus.Host_send_flag)
+////			{
+//////				modbus.Host_Sendtime=0;//发送完毕后计数清零（距离上次的时间）
+//////				modbus.Host_time_flag=0;//发送数据标志位清零
+//////				modbus.Host_send_flag=0;//清空发送结束数据标志位
+////				Host_Func6();//从机返回数据处理
+////			}
+//			osDelay(4000);
+			
+
+
+			
+//			
+//			modbus.Host_time_flag=0;//发送数据标志位清零
+
+			/***2S的时间内执行数据的读取和写入轮询的实验实验***/
+//			value++;
+//			if(modbus.Host_time_flag)//每2s执行读取和写入轮询，1s读取，1S写入
+//			{
+//				
+//				if(value  == 1)
+//				{
+//					 Host_Read03_slave(0x01,0x0000,0x0001);//参数1从机地址，参数2起始地址，参数3寄存器个数
+//					if(modbus.Host_send_flag_03)
+//					{
+////						modbus.Host_Sendtime=0;//发送完毕后计数清零（距离上次的时间）
+////						modbus.Host_time_flag=0;//发送数据标志位清零
+//	//					modbus.Host_send_flag_03=0;//清空发送结束数据标志位
+//						HOST_ModbusRX();//接收数据进行处理
+//					}
+//				}
+//				else if(value  == 200)
+//				{
+//					Host_write06_slave(0x01,0x06,0x0002,0x0045);
+//					if(modbus.Host_send_flag_06)
+//					{
+//	//					modbus.Host_Sendtime=0;//发送完毕后计数清零（距离上次的时间）
+//	//					modbus.Host_time_flag=0;//发送数据标志位清零
+////						modbus.Host_send_flag_06=0;//清空发送结束数据标志位
+//						Host_Func6();//从机返回数据处理
+//					}
+//					value = 0;
+//				}
+//			}
+			value++;
+			if(value  == 10)
+			{
+				Host_Read03_slave(0x01,0x0000,0x0001);//参数1从机地址，参数2起始地址，参数3寄存器个数
+				HOST_ModbusRX();//接收数据进行处理
+//				value = 0;
+			}
+			
+			 if(value  == 200)
+			{
+				Host_write06_slave(0x01,0x06,0x0002,0x0045);
+				Host_Func6();//从机返回数据处理
+				value = 0;
+				
+			}
+
+			
+
+
+			
+			
+		
+		}
+		
+		
+
+
+
+
+
+		/***主机的按键控制从机驱动LED亮灭的实验***/	
+		
+//		if(key_status == 1)
+//		{
+//			for(int i = 0;i<1;i++)
+//			{
+//				Host_write06_slave(0x01,0x06,0x0002,0x0050);
+//				if(modbus.Host_send_flag)
+//				{
+//					modbus.Host_Sendtime=0;//发送完毕后计数清零（距离上次的时间）
+//					modbus.Host_time_flag=0;//发送数据标志位清零
+//					modbus.Host_send_flag=0;//清空发送结束数据标志位
+//					Host_Func6();//从机返回数据处理
+//				}	
+//			}
+//			key_status = 0;
+//			osDelay(1000);
+//		}
+//		
+//		else if(key_status == 2)
+//		{
+//			for(int i = 0;i<1;i++)
+//			{
+//				
+//				Host_write06_slave(0x01,0x06,0x0002,0x0045);
+//				if(modbus.Host_send_flag)
+//				{
+//					modbus.Host_Sendtime=0;//发送完毕后计数清零（距离上次的时间）
+//					modbus.Host_time_flag=0;//发送数据标志位清零
+//					modbus.Host_send_flag=0;//清空发送结束数据标志位
+//					Host_Func6();//从机返回数据处理
+//				}		
+//			}
+//			key_status = 0;
+//			osDelay(1000);
+
+//		}
+					
+					
+					
     
-  }
+//  }
   /* USER CODE END Start_modbus_Task */
+}
+
+/* USER CODE BEGIN Header_Start_keyboard_scan */
+/**
+* @brief Function implementing the keyboard_scan thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Start_keyboard_scan */
+void Start_keyboard_scan(void const * argument)
+{
+  /* USER CODE BEGIN Start_keyboard_scan */
+  /* Infinite loop */
+	int key_123;
+	int i = 0;
+  for(;;)
+  {
+	  
+	  key_123 = keyboard_scan();
+	  if(key_123 == 16)
+	  {
+		  i++;
+		  if(i == 1)
+		  {
+			  Host_write06_slave(0x01,0x06,0x0002,0x0045);
+			  Host_Func6();//从机返回数据处理
+		  
+		  }
+		  
+		  else if(i == 2)
+		  {
+			  Host_write06_slave(0x01,0x06,0x0002,0x0050);
+			  Host_Func6();//从机返回数据处理
+			  i = 0;
+		  
+		  }  
+	  }
+		osDelay(10);
+  }
+  /* USER CODE END Start_keyboard_scan */
 }
 
 /* Private application code --------------------------------------------------*/

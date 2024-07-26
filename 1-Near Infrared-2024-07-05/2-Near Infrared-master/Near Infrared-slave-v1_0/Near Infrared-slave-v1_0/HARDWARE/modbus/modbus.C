@@ -249,7 +249,7 @@ void Host_Read03_slave(uint8_t slave,uint16_t StartAddr,uint16_t num)
     }
     HAL_Delay(10);
 //    RS485_RX_ENABLE;//失能485控制端（改为接收）
-    modbus.Host_send_flag=1;//表示发送数据完毕
+    modbus.Host_send_flag_03=1;//表示发送数据完毕
 }
 
 
@@ -356,7 +356,7 @@ void Host_write06_slave(uint8_t slave,uint8_t fun,uint16_t StartAddr,uint16_t nu
     }
     HAL_Delay(10);
 //    RS485_RX_ENABLE;//失能485控制端（改为接收）
-    modbus.Host_send_flag=1;//表示发送数据完毕
+    modbus.Host_send_flag_06=1;//表示发送数据完毕
 
 }
 
@@ -385,7 +385,7 @@ void Host_Func6()
 
     }
 
-    modbus.Host_End=1;//接收的数据处理完毕
+    modbus.Host_End_6=1;//接收的数据处理完毕,这里为了实验进行了改动。注意
 }
 
 
@@ -419,7 +419,7 @@ void Host_write10_slave(uint8_t slave,uint8_t fun,uint16_t StartAddr,uint16_t re
     }
     HAL_Delay(10);
 //    RS485_RX_ENABLE;//失能485控制端（改为接收）
-    modbus.Host_send_flag=1;//表示发送数据完毕
+    modbus.Host_send_flag_10=1;//表示发送数据完毕
 
 }
 

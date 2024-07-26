@@ -36,5 +36,5 @@
 1-near infrared-master-v1_0\pwr_on_off.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 1-near infrared-master-v1_0\pwr_on_off.o: ../Core/Inc/main.h
 1-near infrared-master-v1_0\pwr_on_off.o: ../Core/Inc/gpio.h
-1-near infrared-master-v1_0\pwr_on_off.o: ..\HARDWARE\KEY\key.h
+1-near infrared-master-v1_0\pwr_on_off.o: ../HARDWARE/KEY/key.h
 1-near infrared-master-v1_0\pwr_on_off.o: ../SYSTEM/delay/delay.h

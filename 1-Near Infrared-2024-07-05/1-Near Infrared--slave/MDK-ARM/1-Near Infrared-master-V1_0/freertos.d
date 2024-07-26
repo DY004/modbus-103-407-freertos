@@ -50,6 +50,9 @@
 1-near infrared-master-v1_0\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 1-near infrared-master-v1_0\freertos.o: ../HARDWARE/MENU/menu.h
 1-near infrared-master-v1_0\freertos.o: ../HARDWARE/modbus/modbus.h
-1-near infrared-master-v1_0\freertos.o: ..\HARDWARE\PWR_ON_OFF\PWR_ON_OFF.h
+1-near infrared-master-v1_0\freertos.o: ../HARDWARE/PWR_ON_OFF/PWR_ON_OFF.h
 1-near infrared-master-v1_0\freertos.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 1-near infrared-master-v1_0\freertos.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+1-near infrared-master-v1_0\freertos.o: ../HARDWARE/Water_tank_liquid/Water_tank_liquid.h
+1-near infrared-master-v1_0\freertos.o: ../Core/Inc/gpio.h
+1-near infrared-master-v1_0\freertos.o: ../HARDWARE/flash_write_read/flash_write_read.h

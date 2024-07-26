@@ -41,5 +41,6 @@ void Information1(void);
 
 void LED(void);
 void RTC_display(void);
+extern uint8_t key_status;
 
 #endif

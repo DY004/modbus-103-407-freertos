@@ -407,6 +407,7 @@ uint16_t keyboard_scan(void)
         if((GPIOB->IDR & 0XF000)!=0XF000)
         {
             temp=(GPIOB->IDR&0XFE00);
+			while(GPIOB->ODR!=0XFE00);//等待按键松开
             switch(temp)
             {
                 case 0xEE00:  key_val=1;   break;
@@ -433,6 +434,7 @@ uint16_t keyboard_scan(void)
         if((GPIOB->IDR & 0XF000)!=0XF000)
         {
             temp=(GPIOB->IDR&0XFD00);
+			while(GPIOB->ODR!=0XFD00);//等待按键松开
             switch(temp)
             {
                 case 0XED00:  key_val=5;  break;
@@ -460,6 +462,7 @@ uint16_t keyboard_scan(void)
         if((GPIOB->IDR & 0XF000)!=0XF000)
         {
             temp=(GPIOB->IDR&0XFB00);
+			while(GPIOB->ODR!=0XFB00);//等待按键松开
             switch(temp)
             {
                 case 0XEB00:  key_val=9;   break;
@@ -487,6 +490,7 @@ uint16_t keyboard_scan(void)
         if((GPIOB->IDR & 0XF000)!=0XF000)
         {
             temp=(GPIOB->IDR&0XF700);
+			while(GPIOB->ODR!=0XF700);//等待按键松开
             switch(temp)
             {
                 case 0XE700:  key_val=13;  break;
