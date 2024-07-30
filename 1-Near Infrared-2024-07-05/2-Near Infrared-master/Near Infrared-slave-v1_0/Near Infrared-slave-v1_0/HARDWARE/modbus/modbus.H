@@ -43,7 +43,9 @@ typedef struct
 	u8 Host_send_flag_06;//主机设备发送数据完毕标志位_03功能
 	u8 Host_send_flag_10;//主机设备发送数据完毕标志位_10功能
     int Host_Sendtime;//发送完一帧数据后时间计数
+	int Host_Sendtime_06;//发送完一帧数据后时间计数
     u8 Host_time_flag;//发送时间到标志位，=1表示到发送数据时间了
+	u8 Host_time_flag_06;//发送时间到标志位，=1表示到发送数据时间了
     u8 Host_End;//接收数据后处理完毕
 	u8 Host_End_6;//接收数据后处理完毕
 } MODBUS;

@@ -240,9 +240,7 @@ void USART1_IRQHandler(void)
 	if(modbus.recount == 1)  //已经收到了第二个字符数据
     {
         modbus.timrun = 1;  //开启modbus定时器计时
-        
     }
-
   /* USER CODE END USART1_IRQn 1 */
 }
 

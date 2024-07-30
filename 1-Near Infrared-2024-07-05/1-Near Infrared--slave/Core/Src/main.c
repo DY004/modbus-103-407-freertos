@@ -212,7 +212,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		{
 			//1s时间到
 			modbus.Host_time_flag=1;//发送数据标志位置1
-			
 		}
 	}
 

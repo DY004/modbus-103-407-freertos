@@ -349,7 +349,6 @@ u8 KEY_Scan(u8 mode)
 	else if(KEY0==1&&KEY1==1&&KEY2==1&&KEY_UP==0)key_up=1;
     return 0;
 }
-
 void TestTemperature()
 {
     DHT11();
@@ -366,7 +365,6 @@ void Set()
 {
     OLED_ShowString(0,0,"Peripherals: Lights",16);
     OLED_ShowString(0,2,"Status: Closed",16);
-//    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
 	key_status =1;
 	
 }

@@ -1,7 +1,7 @@
 Dependencies for Project 'Near Infrared-slave-v1_0', Target 'Near Infrared-slave-v1_0': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (startup_stm32f103xb.s)(0x66A0744D)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I ../Core/Inc-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include--pd "__UVISION_VERSION SETA 536" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xb.lst --xref -o "near infrared-slave-v1_0\startup_stm32f103xb.o" --depend "near infrared-slave-v1_0\startup_stm32f103xb.d")
-F (../Core/Src/main.c)(0x66A09140)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\main.o" --omf_browse "near infrared-slave-v1_0\main.crf" --depend "near infrared-slave-v1_0\main.d")
+F (startup_stm32f103xb.s)(0x66A87685)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I ../Core/Inc-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include--pd "__UVISION_VERSION SETA 536" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xb.lst --xref -o "near infrared-slave-v1_0\startup_stm32f103xb.o" --depend "near infrared-slave-v1_0\startup_stm32f103xb.d")
+F (../Core/Src/main.c)(0x66A87B83)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\main.o" --omf_browse "near infrared-slave-v1_0\main.crf" --depend "near infrared-slave-v1_0\main.d")
 I (../Core/Inc/main.h)(0x668DF4F2)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64BE3123)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x66878CEB)
@@ -37,7 +37,7 @@ I (D:\keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -55,7 +55,7 @@ I (../Core/Inc/usart.h)(0x668F9CEC)
 I (../Core/Inc/gpio.h)(0x6687694B)
 I (../HARDWARE/OLED/oled.h)(0x668F79A0)
 I (../HARDWARE/MENU/menu.h)(0x669E22C8)
-I (../HARDWARE/modbus/modbus.h)(0x66A0971D)
+I (../HARDWARE/modbus/modbus.h)(0x66A74210)
 F (../Core/Src/gpio.c)(0x668F9CEB)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\gpio.o" --omf_browse "near infrared-slave-v1_0\gpio.crf" --depend "near infrared-slave-v1_0\gpio.d")
 I (../Core/Inc/gpio.h)(0x6687694B)
 I (../Core/Inc/main.h)(0x668DF4F2)
@@ -91,11 +91,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64BE3123)
 I (../SYSTEM/sys/sys.h)(0x668F7CD1)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (../Core/Src/freertos.c)(0x66A0B466)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\freertos.o" --omf_browse "near infrared-slave-v1_0\freertos.crf" --depend "near infrared-slave-v1_0\freertos.d")
+F (../Core/Src/freertos.c)(0x66A877D9)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\freertos.o" --omf_browse "near infrared-slave-v1_0\freertos.crf" --depend "near infrared-slave-v1_0\freertos.d")
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -142,7 +142,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x64BE311F
 I (../HARDWARE/MENU/menu.h)(0x669E22C8)
 I (../SYSTEM/delay/delay.h)(0x668F7C1F)
 I (../HARDWARE/matrix_key/matrix_key.h)(0x668DFB39)
-I (../HARDWARE/modbus/modbus.h)(0x66A0971D)
+I (../HARDWARE/modbus/modbus.h)(0x66A74210)
 I (../Core/Inc/usart.h)(0x668F9CEC)
 F (../Core/Src/rtc.c)(0x66878CEA)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\rtc.o" --omf_browse "near infrared-slave-v1_0\rtc.crf" --depend "near infrared-slave-v1_0\rtc.d")
 I (../Core/Inc/rtc.h)(0x66878CEA)
@@ -214,7 +214,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64BE3123)
 I (../SYSTEM/sys/sys.h)(0x668F7CD1)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (../Core/Src/usart.c)(0x669DD0C4)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\usart.o" --omf_browse "near infrared-slave-v1_0\usart.crf" --depend "near infrared-slave-v1_0\usart.d")
+F (../Core/Src/usart.c)(0x66A759D8)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\usart.o" --omf_browse "near infrared-slave-v1_0\usart.crf" --depend "near infrared-slave-v1_0\usart.d")
 I (../Core/Inc/usart.h)(0x668F9CEC)
 I (../Core/Inc/main.h)(0x668DF4F2)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64BE3123)
@@ -249,7 +249,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64BE3123)
 I (../SYSTEM/sys/sys.h)(0x668F7CD1)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (../Core/Src/stm32f1xx_it.c)(0x66A0744B)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\stm32f1xx_it.o" --omf_browse "near infrared-slave-v1_0\stm32f1xx_it.crf" --depend "near infrared-slave-v1_0\stm32f1xx_it.d")
+F (../Core/Src/stm32f1xx_it.c)(0x66A751AC)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\stm32f1xx_it.o" --omf_browse "near infrared-slave-v1_0\stm32f1xx_it.crf" --depend "near infrared-slave-v1_0\stm32f1xx_it.d")
 I (../Core/Inc/main.h)(0x668DF4F2)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64BE3123)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x66878CEB)
@@ -284,7 +284,7 @@ I (../SYSTEM/sys/sys.h)(0x668F7CD1)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (../Core/Inc/stm32f1xx_it.h)(0x66972A5D)
-I (../HARDWARE/modbus/modbus.h)(0x66A0971D)
+I (../HARDWARE/modbus/modbus.h)(0x66A74210)
 F (../Core/Src/stm32f1xx_hal_msp.c)(0x668769D6)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\stm32f1xx_hal_msp.o" --omf_browse "near infrared-slave-v1_0\stm32f1xx_hal_msp.crf" --depend "near infrared-slave-v1_0\stm32f1xx_hal_msp.d")
 I (../Core/Inc/main.h)(0x668DF4F2)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64BE3123)
@@ -863,7 +863,7 @@ F (../Middlewares/Third_Party/FreeRTOS/Source/croutine.c)(0x64BE311F)(--c99 -c -
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -877,7 +877,7 @@ I (D:\keil5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -892,7 +892,7 @@ I (D:\keil5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -905,7 +905,7 @@ I (D:\keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -919,7 +919,7 @@ I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -934,7 +934,7 @@ I (D:\keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -949,7 +949,7 @@ I (D:\keil5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -965,7 +965,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -983,7 +983,7 @@ I (D:\keil5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -995,7 +995,7 @@ F (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c)(0x64
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x64BE311F)
 I (D:\keil5\ARM\ARMCC\include\stddef.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6687694B)
+I (../Core/Inc/FreeRTOSConfig.h)(0x66A87683)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x64BE311F)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x64BE311F)
@@ -1044,7 +1044,7 @@ I (../HARDWARE/dinogame/dinogame.h)(0x66875544)
 I (D:\keil5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (../HARDWARE/matrix_key/matrix_key.h)(0x668DFB39)
 I (../SYSTEM/delay/delay.h)(0x668F7C1F)
-F (..\HARDWARE\MENU\menu.c)(0x669E2670)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\menu.o" --omf_browse "near infrared-slave-v1_0\menu.crf" --depend "near infrared-slave-v1_0\menu.d")
+F (..\HARDWARE\MENU\menu.c)(0x66A83FD5)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\menu.o" --omf_browse "near infrared-slave-v1_0\menu.crf" --depend "near infrared-slave-v1_0\menu.d")
 I (..\HARDWARE\MENU\menu.h)(0x669E22C8)
 I (../Core/Inc/main.h)(0x668DF4F2)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64BE3123)
@@ -1239,7 +1239,7 @@ I (D:\keil5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\keil5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (../Core/Inc/main.h)(0x668DF4F2)
 F (..\HARDWARE\modbus\modbus.C)(0x66A0AB9E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../HARDWARE/control -I ../HARDWARE/MENU -I ../HARDWARE/OLED -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../HARDWARE/dinogame -I ../HARDWARE/DHT11 -I ../HARDWARE/matrix_key -I ../HARDWARE/modbus-I.\RTE\_Near_Infrared-slave-v1_0-ID:\keil5\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\keil5\pack\Keil\STM32F1xx_DFP\2.0.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o "near infrared-slave-v1_0\modbus.o" --omf_browse "near infrared-slave-v1_0\modbus.crf" --depend "near infrared-slave-v1_0\modbus.d")
-I (..\HARDWARE\modbus\modbus.h)(0x66A0971D)
+I (..\HARDWARE\modbus\modbus.h)(0x66A74210)
 I (../SYSTEM/sys/sys.h)(0x668F7CD1)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x64BE3123)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x64BE3123)

@@ -2,9 +2,10 @@
 CAD.formats=
 CAD.pinconfig=
 CAD.provider=
-FREERTOS.FootprintOK=true
-FREERTOS.IPParameters=Tasks01,FootprintOK
-FREERTOS.Tasks01=LED_Task,-2,128,Start_LED_Task,Default,NULL,Dynamic,NULL,NULL;menu_Task,-1,128,Start_menu_Task,Default,NULL,Dynamic,NULL,NULL;modbus_Task,-1,128,Start_modbus_Task,Default,NULL,Dynamic,NULL,NULL;keyboard_scan,-3,128,Start_keyboard_scan,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.FootprintOK=false
+FREERTOS.IPParameters=Tasks01,FootprintOK,configTOTAL_HEAP_SIZE
+FREERTOS.Tasks01=LED_Task,-2,128,Start_LED_Task,Default,NULL,Dynamic,NULL,NULL;menu_Task,-1,128,Start_menu_Task,Default,NULL,Dynamic,NULL,NULL;modbus_Task,-1,128,Start_modbus_Task,Default,NULL,Dynamic,NULL,NULL;keyboard_scan,-3,128,Start_keyboard_scan,Default,NULL,Dynamic,NULL,NULL;pump_Task,-3,128,Start_pump_Task,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.configTOTAL_HEAP_SIZE=4096
 File.Version=6
 GPIO.groupedBy=Group By Peripherals
 KeepUserPlacement=false

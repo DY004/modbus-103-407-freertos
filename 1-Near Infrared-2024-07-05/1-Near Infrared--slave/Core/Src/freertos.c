@@ -161,9 +161,6 @@ void Start_LED_Task(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-//        HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
-//        HAL_GPIO_TogglePin(LED0_GPIO_Port,LED0_Pin);
-//	  printf("这是一个测试实验123\r\n");
         osDelay(500);
     }
   /* USER CODE END Start_LED_Task */
@@ -273,23 +270,29 @@ void Start_FAN_Task(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-        printf("Reg[2]寄存器中的值： %d\n",Reg[2]);
+//        printf("Reg[2]寄存器中的值： %d\n",Reg[2]);
+//		printf("Reg[1]寄存器中的值： %d\n",Reg[1]);
 //    
         if(Reg[2] == 69)
         {
             HAL_GPIO_WritePin(LED2_GPIO_Port,LED2_Pin,GPIO_PIN_RESET);
-            HAL_GPIO_WritePin(LED3_GPIO_Port,LED3_Pin,GPIO_PIN_RESET);
-            osDelay(500);
         }
 
         if(Reg[2] == 80)
         {
             HAL_GPIO_WritePin(LED2_GPIO_Port,LED2_Pin,GPIO_PIN_SET);
-            HAL_GPIO_WritePin(LED3_GPIO_Port,LED3_Pin,GPIO_PIN_SET);
-            osDelay(500);
-
         }
-		osDelay(500);
+		
+		if(Reg[1] == 52)//亮灯
+        {
+            HAL_GPIO_WritePin(LED3_GPIO_Port,LED3_Pin,GPIO_PIN_RESET);
+        }
+
+        if(Reg[1] == 51 || Reg[1] == 0)//灭灯
+        {
+            HAL_GPIO_WritePin(LED3_GPIO_Port,LED3_Pin,GPIO_PIN_SET);
+        }
+		osDelay(50);
 
     }
   /* USER CODE END Start_FAN_Task */
@@ -381,17 +384,13 @@ void Start_liquid(void const * argument)
 				osDelay(500);
 				Reg[0] = 0x0010;
 			}
-			
-			
         }
-		
-
-        printf("此刻water_low_flag的值是： %d\r\n",water_flag_fill_flag);
+//        printf("此刻water_low_flag的值是： %d\r\n",water_flag_fill_flag);
 
 
 //	  printf("water_low_flag的值是：%d\r\n",water_low_flag);
 //	  printf("water_high_flag的值是：%d\r\n",water_high_flag);
-        osDelay(1000);
+        osDelay(100);
     }
   /* USER CODE END Start_liquid */
 }
