@@ -363,7 +363,7 @@ void ConrtolGame()
 
 void Set()
 {
-    OLED_ShowString(0,0,"Peripherals: Lights",16);
+    OLED_ShowString(0,0,"driver: Lights",16);
     OLED_ShowString(0,2,"Status: Closed",16);
 	key_status =1;
 	
@@ -380,9 +380,8 @@ void Information()
 
 void LED()
 {
-    OLED_ShowString(0,0,"Peripherals: Lights",16);
+    OLED_ShowString(0,0,"driver: Lights",16);
     OLED_ShowString(0,2,"Status: Open",16);
-//    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
 	 key_status =2;
 }
 

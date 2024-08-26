@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "adc.h"
 #include "rtc.h"
 #include "tim.h"
 #include "usart.h"
@@ -99,6 +100,7 @@ int main(void)
   MX_RTC_Init();
   MX_TIM3_Init();
   MX_USART1_UART_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(POWER_CTR_GPIO_Port,POWER_CTR_Pin,GPIO_PIN_SET);
   Modbus_Init();//本机作为从机使用时初始化

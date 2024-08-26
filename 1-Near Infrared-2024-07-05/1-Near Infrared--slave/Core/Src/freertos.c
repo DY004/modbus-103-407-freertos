@@ -60,6 +60,7 @@ osThreadId BOOT_TaskHandle;
 osThreadId Modbus_TaskHandle;
 osThreadId FAN_TaskHandle;
 osThreadId liquidHandle;
+osThreadId B3950_TaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -72,6 +73,7 @@ void Start_BOOT_Task(void const * argument);
 void Start_Modbus_Task(void const * argument);
 void Start_FAN_Task(void const * argument);
 void Start_liquid(void const * argument);
+void Start_B3950_Task(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -135,12 +137,16 @@ void MX_FREERTOS_Init(void) {
   Modbus_TaskHandle = osThreadCreate(osThread(Modbus_Task), NULL);
 
   /* definition and creation of FAN_Task */
-  osThreadDef(FAN_Task, Start_FAN_Task, osPriorityBelowNormal, 0, 128);
+  osThreadDef(FAN_Task, Start_FAN_Task, osPriorityIdle, 0, 128);
   FAN_TaskHandle = osThreadCreate(osThread(FAN_Task), NULL);
 
   /* definition and creation of liquid */
-  osThreadDef(liquid, Start_liquid, osPriorityBelowNormal, 0, 128);
+  osThreadDef(liquid, Start_liquid, osPriorityIdle, 0, 128);
   liquidHandle = osThreadCreate(osThread(liquid), NULL);
+
+  /* definition and creation of B3950_Task */
+  osThreadDef(B3950_Task, Start_B3950_Task, osPriorityIdle, 0, 128);
+  B3950_TaskHandle = osThreadCreate(osThread(B3950_Task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
     /* add threads, ... */
@@ -385,14 +391,30 @@ void Start_liquid(void const * argument)
 				Reg[0] = 0x0010;
 			}
         }
-//        printf("此刻water_low_flag的值是： %d\r\n",water_flag_fill_flag);
-
-
+//    printf("此刻water_low_flag的值是： %d\r\n",water_flag_fill_flag);
 //	  printf("water_low_flag的值是：%d\r\n",water_low_flag);
 //	  printf("water_high_flag的值是：%d\r\n",water_high_flag);
         osDelay(100);
     }
   /* USER CODE END Start_liquid */
+}
+
+/* USER CODE BEGIN Header_Start_B3950_Task */
+/**
+* @brief Function implementing the B3950_Task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Start_B3950_Task */
+void Start_B3950_Task(void const * argument)
+{
+  /* USER CODE BEGIN Start_B3950_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END Start_B3950_Task */
 }
 
 /* Private application code --------------------------------------------------*/

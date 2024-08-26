@@ -23,6 +23,9 @@
 1-near infrared-master-v1_0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
 1-near infrared-master-v1_0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h
 1-near infrared-master-v1_0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
+1-near infrared-master-v1_0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h
+1-near infrared-master-v1_0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h
+1-near infrared-master-v1_0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h
 1-near infrared-master-v1_0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
 1-near infrared-master-v1_0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 1-near infrared-master-v1_0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
@@ -48,6 +51,7 @@
 1-near infrared-master-v1_0\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 1-near infrared-master-v1_0\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 1-near infrared-master-v1_0\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+1-near infrared-master-v1_0\main.o: ../Core/Inc/adc.h
 1-near infrared-master-v1_0\main.o: ../Core/Inc/rtc.h
 1-near infrared-master-v1_0\main.o: ../Core/Inc/tim.h
 1-near infrared-master-v1_0\main.o: ../Core/Inc/usart.h

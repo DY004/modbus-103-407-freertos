@@ -261,7 +261,7 @@ void Host_Func3()
 //	uint16_t crc,rccrc;//计算crc和接收到的crc
     int count=(int)modbus.rcbuf[2];//这是数据个数
 
-    printf("从机返回 %d 个寄存器数据：\r\n",count/2);
+//    printf("从机返回 %d 个寄存器数据：\r\n",count/2);
     for(i=0; i<count; i=i+2)
     {
         printf("Temp_Hbit= %d Temp_Lbit= %d temp= %d\r\n",(int)modbus.rcbuf[3+i],(int)modbus.rcbuf[4+i],(int)modbus.rcbuf[4+i]+((int)modbus.rcbuf[3+i])*256);
@@ -378,7 +378,7 @@ void Host_Func6()
             {
 
                 printf("地址为 %d 的从机寄存器 %d 中写入数据 %d \r\n ",(int)modbus.rcbuf[0],(int)modbus.rcbuf[3]+((int)modbus.rcbuf[2])*256,(int)modbus.rcbuf[5]+((int)modbus.rcbuf[4])*256);
-                printf("Host_06 write data right!\r\n");
+//                printf("Host_06 write data right!\r\n");
 
             }
         }
